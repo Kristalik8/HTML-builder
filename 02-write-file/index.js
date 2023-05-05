@@ -5,18 +5,18 @@ const textFile = path.join(__dirname, 'text.txt');
 const {stdin, stdout} = process;
 
 fs.writeFile(textFile, '', function (err) {
-    if (err) throw err;
+  if (err) throw err;
 });
 
 
 const textFileOutput = fs.createWriteStream(textFile);
 
 stdin.on('data', data => {
-    let text = data.toString().trim();
-    if (text === 'exit') {
-        process.exit();
-    }
-    textFileOutput.write(data);
+  let text = data.toString().trim();
+  if (text === 'exit') {
+    process.exit();
+  }
+  textFileOutput.write(data);
 });
 
 
